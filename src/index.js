@@ -14,16 +14,19 @@ const App = () => {
       author="Sam" 
       timeAgo="Today at 4:55PM"
       content="great post!"
+      avatar={faker.image.avatar()}
       />
       <Comment 
       author="Alex" 
       timeAgo="Today at 12:00PM"
       content="Not too impressed.."
+      avatar={faker.image.avatar()}
       />
       <Comment 
       author="Joe" 
       timeAgo="Yesterday at 11:30AM"
       content="Whoa!"
+      avatar={faker.image.avatar()}
       />
     </div>
    )
