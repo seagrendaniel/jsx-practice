@@ -1,21 +1,31 @@
 // Import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import faker from 'faker';
-import Comment from './Components/Comment';
-import ApprovalCard from './Components/ApprovalCard';
-import SeasonsApp from './Components/SeasonsApp';
+// import faker from 'faker';
+// import Comment from './Components/Comment';
+// import ApprovalCard from './Components/ApprovalCard';
+// import SeasonsApp from './Components/SeasonsApp';
 
 
 // Create a react component
 class App extends React.Component {
-  
-  render(){
+  constructor(props){
+    super(props);       // ensures that the constructor function inside React.Component still gets called
+    this.state = {
+      lat: null
+    };
+
     window.navigator.geolocation.getCurrentPosition(
-      (position) => console.log(position),
+      (position) => {
+        this.setState( {lat: position.coords.latitude} );
+      },
       (err) => console.log(err)
     );
-    return <div>Latitude: </div>
+  }
+
+
+  render(){
+    return <div>Latitude: {this.state.lat}</div>
   }
 }
 
