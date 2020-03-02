@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './Components/SeasonsDisplay'
+import LoadingSpinner from './Components/LoadingSpinner'
 
 // import faker from 'faker';
 // import Comment from './Components/Comment';
@@ -33,7 +34,7 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat}/>
     }
 
-    return <div>Loading!</div>
+    return <LoadingSpinner />
   }
 }
 
