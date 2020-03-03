@@ -13,7 +13,7 @@ import LoadingSpinner from './Components/LoadingSpinner'
 // Create a react component
 class App extends React.Component {
 
-  state = {lat: null, errorMessage: ''};
+  state = { lat: null, errorMessage: '' };
 
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
@@ -26,15 +26,24 @@ class App extends React.Component {
     console.log('my component updated');
   }
 
-  render() {
+  renderContent() {
     if (this.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>
     }
     if (!this.state.errorMessage && this.state.lat) {
-      return <SeasonDisplay lat={this.state.lat}/>
+      return <SeasonDisplay lat={this.state.lat} />
     }
 
-    return <LoadingSpinner />
+    return <LoadingSpinner message="Please accept location request" />
+  }
+
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    )
   }
 }
 
